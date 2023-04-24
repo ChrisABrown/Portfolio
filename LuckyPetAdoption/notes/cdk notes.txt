@@ -1,0 +1,9 @@
+CDK commands:
+cdk init app --language= typescript, javascript, python
+cdk bootstrap 
+cdk synth
+cdk deploy
+cdk diff
+cdk list 
+cdk doctor
+cdk destroy

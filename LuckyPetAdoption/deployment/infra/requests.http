@@ -1,0 +1,39 @@
+@endpoint = https://zias10hl53.execute-api.us-west-1.amazonaws.com/prod/
+
+@token = eyJraWQiOiJWZDkrXC81d1VtanBIVW5tMndpeDhYdVhYeGhhbm92U0c3S3NlbHpZZ0NjTT0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIyNWNjNTRiNS04ZDExLTQxMDktOWI1Mi1lOGU4MjFiNTg4MzgiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLnVzLXdlc3QtMS5hbWF6b25hd3MuY29tXC91cy13ZXN0LTFfRGlZNDdnSVRkIiwiY29nbml0bzp1c2VybmFtZSI6ImNiMjQiLCJvcmlnaW5fanRpIjoiMmEyMGEwZDktZjhjMC00ZDVlLTg5M2MtOGNmY2NkZjUzMjI2IiwiYXVkIjoibDQyMWc2MTRkbmNucnJsN2J2YnU1OGZtOCIsImV2ZW50X2lkIjoiZjVjZWJjZWEtOGJlMS00MzNmLTkwZDgtYzY5ZDJiNjlmYTQ5IiwidG9rZW5fdXNlIjoiaWQiLCJhdXRoX3RpbWUiOjE2ODEyNjYzMjcsImV4cCI6MTY4MTI2OTkyNywiaWF0IjoxNjgxMjY2MzI3LCJqdGkiOiI1NDg2MmE5MC02OWFjLTQ0MjctYmJhNi0zYTExMjJlZjdkNDciLCJlbWFpbCI6ImNiMjRAZXhhbXBsZS5jb20ifQ.XBpU6qz07BLWrRJFrJAbSzH0O5u4US5TyR_nR4xotBWg0ZbWHWSigcvLiFtZAnb8UQ3en8-YtENHFTmSgmo8k8ehhCFyfaxlU5OcSk0P23VLxzQGRdKAgrfroB5fddWTd1qxPKX95itR5lfFhMef_GwbLeNdrc3KwZLQ4goyV8V-QoW4GB-32BZX_-rulGsZ5fsFM3IiA2pvo1AWwIqUVzeE_zKMk6yKJ9-1NbGGa2W7m3iE7A29plybkfuB5cboNyhwaXEGD_k8ATvmV1FrGtOJuw7tbtjsh8iLUm6nB0MgKisE85Oo8Y5GeC5uxMqX6bk52ANm9oyCKnK4hRr4AQ
+
+GET {{endpoint}}/hell/
+Authorization: {{token}}
+###
+
+
+GET {{endpoint}}/pets/
+###
+
+GET {{endpoint}}/pets/?luckyPetId=d4d7ba31-fdae-4792-a9af-1500f0d3c9f9
+###
+
+PUT {{endpoint}}/pets/?luckyPetId=d4d7ba31-fdae-4792-a9af-1500f0d3c9f9
+Content-Type: application/json
+
+{
+  "breed" : "Dalmation"
+}
+###
+
+GET {{endpoint}}/pets/?breed=Rottweiler
+###
+
+POST {{endpoint}}/pets/
+Accept: application/json
+Content-Type: application/json
+
+ {
+  "dogName": "Sugar",
+  "breed": "Chihuahua",
+  "sex": "female"
+}
+###
+
+DELETE {{endpoint}}/pets?luckyPetId=d4d7ba31-fdae-4792-a9
+###
