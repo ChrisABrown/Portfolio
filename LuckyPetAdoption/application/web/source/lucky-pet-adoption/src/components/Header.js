@@ -1,18 +1,15 @@
-import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap'
-import { useDispatch, useSelector } from 'react-redux'
+import { Container, Navbar } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
-import { logout } from ''
-import CartIcon from './CartIcon'
 
 const Header = () => {
-  const dispatch = useDispatch()
-  const userLogin = useSelector((state) => state.userLogin)
-  const { userInfo } = userLogin
-  const logoutHandler = () => {
-    dispatch(logout())
-    alert(`${userInfo.username} Successfully logged out.`)
-    window.location.reload(true)
-  }
+  // const dispatch = useDispatch()
+  // const userLogin = useSelector((state) => state.userLogin)
+  // const { userInfo } = userLogin
+  // const logoutHandler = () => {
+  //   dispatch(logout())
+  //   alert(`${userInfo.username} Successfully logged out.`)
+  //   window.location.reload(true)
+  // }
   return (
     <header>
       <Navbar bg='dark' variant='dark' expand='lg' collapseOnSelect>
@@ -30,7 +27,7 @@ const Header = () => {
           <LinkContainer to='/about'>
             <Navbar.Brand>
               <img
-                src='https://thumbs.dreamstime.com/z/black-us-sign-icon-logo-isolated-white-background-black-us-sign-icon-logo-isolated-white-background-simple-172074555.jpg'
+                src='https://media.istockphoto.com/id/1256096552/vector/about-us-rgb-color-icon.jpg?s=612x612&w=0&k=20&c=KKozSJIgaX2lu1OIRY9Oc5Rp1GhQzpTIKatBtc_4lQQ='
                 alt='about us icon'
                 height={50}
                 width={50}
@@ -59,7 +56,7 @@ const Header = () => {
           </LinkContainer>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
-            <Nav className='ms-auto'>
+            {/* <Nav className='ms-auto'>
               <LinkContainer to='/cart'>
                 <Nav.Link>
                   <CartIcon />
@@ -82,7 +79,7 @@ const Header = () => {
                   </Nav.Link>
                 </LinkContainer>
               )}
-            </Nav>
+            </Nav> */}
           </Navbar.Collapse>
         </Container>
       </Navbar>
