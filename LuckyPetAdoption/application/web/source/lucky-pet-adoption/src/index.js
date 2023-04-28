@@ -10,6 +10,7 @@ import {
 import './index.css'
 import App from './App'
 import store from './store'
+import 'bootstrap/dist/css/bootstrap.css'
 
 const router = createBrowserRouter(
   createRoutesFromElements(<Route path='/*' element={<App />} exact></Route>)

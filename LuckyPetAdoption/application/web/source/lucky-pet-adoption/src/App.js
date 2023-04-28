@@ -1,5 +1,4 @@
 import { Container } from 'react-bootstrap'
-import './App.css'
 import About from './views/About'
 import Admin from './views/Admin'
 import AllPets from './views/AllPets'
@@ -14,8 +13,8 @@ import Home from './views/Home'
 function App() {
   return (
     <>
+      <Header />
       <main className='py-3'>
-        <Header />
         <Container>
           <Routes>
             <Route path='/' element={<Home />} />
