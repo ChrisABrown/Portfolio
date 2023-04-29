@@ -1,8 +1,7 @@
-import pkg from 'express'
-import cors from 'cors'
+const express = require('express')
 
-const { Express } = pkg
-const app = pkg()
+const port = process.env.PORT
 
-app.use(cors())
-app.use(pkg.json())
+const app = express()
+
+app.listen(port, console.log('Server running on port' + port))
