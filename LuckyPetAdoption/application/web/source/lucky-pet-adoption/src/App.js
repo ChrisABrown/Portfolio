@@ -9,6 +9,7 @@ import Login from './views/Login'
 import { Route, Routes } from 'react-router-dom'
 import Header from './components/Header'
 import Home from './views/Home'
+import PetsStore from './views/PetsStore'
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path='/admin' element={<Admin />} />
             <Route path='/login' element={<Login />} />
             <Route path='/cart/checkout' element={<Checkout />} />
+            <Route path='/store' element={<PetsStore />} />
             <Route
               path='/cart/checkout-summary'
               element={<CheckoutSummary />}
