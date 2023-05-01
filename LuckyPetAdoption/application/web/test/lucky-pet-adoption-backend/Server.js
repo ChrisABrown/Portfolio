@@ -13,4 +13,9 @@ app.get('/api/store-items', (req, res) => {
   res.json(products)
 })
 
+app.get('/api/store-items/:id', (req, res) => {
+  const product = products.find((p) => p.id === req.params.id)
+  res.json(product)
+})
+
 app.listen(port, console.log('Server running on port ' + port))
