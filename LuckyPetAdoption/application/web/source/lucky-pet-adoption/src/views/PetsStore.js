@@ -1,9 +1,12 @@
 import PetSupplies from '../components/PetSupplies'
+import DataService from '../services/data.service'
 
 const PetsStore = () => {
+  const storeItems = DataService.getAllProducts()
+
   return (
     <div>
-      <PetSupplies storeItems={storeItems} key={storeItems.id} />
+      <PetSupplies storeItems={storeItems} />
     </div>
   )
 }

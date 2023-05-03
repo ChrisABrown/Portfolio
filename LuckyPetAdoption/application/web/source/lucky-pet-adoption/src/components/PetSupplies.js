@@ -2,6 +2,7 @@ import React from 'react'
 import { Card } from 'react-bootstrap'
 
 const PetSupplies = (storeItems) => {
+  console.log(storeItems)
   const petSupplies = Object.values(storeItems).map((item) => {
     const product = item
     return (
@@ -32,7 +33,10 @@ const PetSupplies = (storeItems) => {
   })
   return (
     <>
-      <div className='d-flex flex-row flex-wrap justify-content-between'>
+      <div
+        className='d-flex flex-row flex-wrap justify-content-between'
+        key={storeItems.name}
+      >
         {petSupplies}
       </div>
     </>
