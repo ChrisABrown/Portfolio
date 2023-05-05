@@ -2,9 +2,9 @@ import React from 'react'
 import { Card } from 'react-bootstrap'
 
 const PetSupplies = (storeItems) => {
-  console.log(storeItems)
   const petSupplies = Object.values(storeItems).map((item) => {
     const product = item
+    console.log(item)
     return (
       <>
         <div
