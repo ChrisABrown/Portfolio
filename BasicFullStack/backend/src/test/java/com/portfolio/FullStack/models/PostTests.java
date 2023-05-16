@@ -16,12 +16,5 @@ public class PostTests {
 
     }
 
-    @Test
-    void should_(){
-        var comments = newPost.comments;
-        int actual = comments.length;
-        if( actual < 0){
 
-        }
-    }
 }
