@@ -1,5 +1,6 @@
-package com.portfolio.FullStack.models;
+package com.portfolio.FullStack.models.UserTests;
 
+import com.portfolio.FullStack.models.User;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
