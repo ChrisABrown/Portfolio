@@ -6,9 +6,11 @@ import lombok.Setter;
 import javax.xml.stream.events.Comment;
 import java.time.LocalDateTime;
 
+@Getter
+@Setter
 public class Post {
-    @Getter
-    @Setter
+
+    String postId;
     User user;
     LocalDateTime createdOn;
     LocalDateTime updatedOn;
