@@ -9,27 +9,36 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.xml.stream.events.Comment;
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 @Getter
 @Setter
 @Entity
 @AllArgsConstructor
-@NoArgsConstructor
+@NoArgsConstructor(force = true)
 @Table(name = "Posts")
 public class Post {
 
-    String postId;
     @Id
-    User user;
-    LocalDateTime createdOn;
-    LocalDateTime updatedOn;
-    String body;
-    Comment[] comments;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @NotNull
+    @Column(name = "PostId")
+    private String postId;
+    @JoinColumn(name = "UserId")
+    @Transient
+    @ManyToOne(fetch = FetchType.EAGER)
+    private User user;
+    @Column(name = "CreatedOn")
+    private LocalDateTime createdOn;
+    @Column(name = "UpdatedOn")
+    private LocalDateTime updatedOn;
+    @Column(name = "Body")
+    private String body;
+    @Column(name = "Comments")
+    @Transient
+    private Comment[] comments;
 
-    static @NotNull String usingRandomUUID() {
-        UUID randomUUID = UUID.randomUUID();
-        return randomUUID.toString().replaceAll("_", "").substring(0, 6);
+    public Post(@NotNull String postId) {
+        this.postId = postId;
     }
 
     public boolean isEmpty() {
@@ -37,7 +46,4 @@ public class Post {
     }
 
 
-    public void setPostId() {
-        this.postId = usingRandomUUID();
-    }
 }

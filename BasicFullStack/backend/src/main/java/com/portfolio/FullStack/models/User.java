@@ -1,22 +1,35 @@
 package com.portfolio.FullStack.models;
 
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.jetbrains.annotations.NotNull;
 
-import static com.portfolio.FullStack.models.Post.usingRandomUUID;
 
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor(force = true)
+@Entity
+@Table(name = "Users")
 public class User {
-    String username;
-    String userId;
-    String password;
-    Post[] posts;
-    Boolean isUsernameEmpty;
-    Boolean isUserIdEmpty;
 
-    public void setUserId() {
-        this.userId = usingRandomUUID();
-    }
+    @Column(name = "Username")
+    private String username;
+    @Id
+    @NotNull
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private String userId;
+    @Transient
+    @NotNull
+    private String password;
+    @Column(name = "Posts")
+    @Transient
+    private Post[] posts;
+    private Boolean isUsernameEmpty;
+    private Boolean isUserIdEmpty;
+
 
 }

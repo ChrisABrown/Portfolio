@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class UserTests {
+public class ManualUserTests {
 
     User user = new User();
 
@@ -30,7 +30,7 @@ public class UserTests {
         var given = user.getUserId();
         boolean expected = true;
         boolean actual = user.getIsUserIdEmpty();
-        if(given == null || given.equals("")){
+        if(given.equals("")){
             assertEquals(expected, actual);
         }
     }

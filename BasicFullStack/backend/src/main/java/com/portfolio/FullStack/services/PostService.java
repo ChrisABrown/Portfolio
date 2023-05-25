@@ -17,7 +17,6 @@ public class PostService {
     private PostRepository postRepository;
 
     public Post createPost(Post newPost) {
-        newPost.setPostId();
         return postRepository.save(newPost);
     }
 
