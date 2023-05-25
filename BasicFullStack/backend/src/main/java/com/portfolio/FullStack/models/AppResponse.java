@@ -1,8 +1,15 @@
 package com.portfolio.FullStack.models;
 
-public class AppResponse {
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-    String body;
-    String status;
-    Boolean success;
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+public class AppResponse {
+    private int status;
+    private String message;
+    private boolean success;
+    private Object data;
 }
