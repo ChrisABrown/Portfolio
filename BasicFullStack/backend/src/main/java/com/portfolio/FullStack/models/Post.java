@@ -9,6 +9,7 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.xml.stream.events.Comment;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 @Getter
 @Setter
@@ -35,7 +36,7 @@ public class Post {
     private String body;
     @Column(name = "Comments")
     @Transient
-    private Comment[] comments;
+    private ArrayList<Comment> comments;
 
     public Post(@NotNull String postId) {
         this.postId = postId;

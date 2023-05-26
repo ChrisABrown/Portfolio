@@ -20,7 +20,8 @@ public class PostService {
         return postRepository.save(newPost);
     }
 
-    public List<Post> getAllPosts() {
+    public List<Post> getAllPostsForSingleUser(String userId) {
+        List<Post> postOwner = postRepository.findByUser(userId);
         return postRepository.findAll();
     }
 

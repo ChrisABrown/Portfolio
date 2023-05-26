@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
+
 
 @Getter
 @Setter
@@ -27,7 +29,7 @@ public class User {
     private String password;
     @Column(name = "Posts")
     @Transient
-    private Post[] posts;
+    private ArrayList<Post> posts;
     private Boolean isUsernameEmpty;
     private Boolean isUserIdEmpty;
 
