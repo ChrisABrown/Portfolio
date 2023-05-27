@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.ArrayList;
+
 import com.portfolio.FullStack.models.Post;
 import com.portfolio.FullStack.models.User;
 import org.junit.jupiter.api.Test;
@@ -17,7 +19,7 @@ class DiffBlueUserTest {
      *   <li>{@link User#User()}
      *   <li>{@link User#setIsUserIdEmpty(Boolean)}
      *   <li>{@link User#setIsUsernameEmpty(Boolean)}
-     *   <li>{@link User#setPosts(Post[])}
+     *   <li>{@link User#setPosts(ArrayList)}
      *   <li>{@link User#setUsername(String)}
      *   <li>{@link User#getIsUserIdEmpty()}
      *   <li>{@link User#getIsUsernameEmpty()}
@@ -30,7 +32,7 @@ class DiffBlueUserTest {
         User actualUser = new User();
         actualUser.setIsUserIdEmpty(true);
         actualUser.setIsUsernameEmpty(true);
-        Post[] posts = new Post[]{new Post("42")};
+        ArrayList<Post> posts = new ArrayList<>();
         actualUser.setPosts(posts);
         actualUser.setUsername("janedoe");
         assertTrue(actualUser.getIsUserIdEmpty());
@@ -40,37 +42,35 @@ class DiffBlueUserTest {
     }
 
     /**
-     * Method under test: {@link User#User(String, String, String, Post[], Boolean, Boolean)}
+     * Method under test: {@link User#User(String, String, String, ArrayList, Boolean, Boolean)}
      */
     @Test
     void testConstructor2() {
-        User actualUser = new User("janedoe", "42", "iloveyou", new Post[]{new Post("42")}, true, true);
+        User actualUser = new User("janedoe", "42", "iloveyou", new ArrayList<>(), true, true);
 
         assertTrue(actualUser.getIsUserIdEmpty());
         assertEquals("janedoe", actualUser.getUsername());
         assertEquals("42", actualUser.getUserId());
-        assertEquals(1, actualUser.getPosts().length);
+        assertTrue(actualUser.getPosts().isEmpty());
         assertEquals("iloveyou", actualUser.getPassword());
         assertTrue(actualUser.getIsUsernameEmpty());
     }
 
     /**
-     * Method under test: {@link User#User(String, String, String, Post[], Boolean, Boolean)}
+     * Method under test: {@link User#User(String, String, String, ArrayList, Boolean, Boolean)}
      */
     @Test
     void testConstructor3() {
-        assertThrows(IllegalArgumentException.class,
-                () -> new User("foo", null, null, new Post[]{new Post("42")}, true, true));
+        assertThrows(IllegalArgumentException.class, () -> new User("foo", null, null, new ArrayList<>(), true, true));
 
     }
 
     /**
-     * Method under test: {@link User#User(String, String, String, Post[], Boolean, Boolean)}
+     * Method under test: {@link User#User(String, String, String, ArrayList, Boolean, Boolean)}
      */
     @Test
     void testConstructor4() {
-        assertThrows(IllegalArgumentException.class,
-                () -> new User("foo", "foo", null, new Post[]{new Post("42")}, true, true));
+        assertThrows(IllegalArgumentException.class, () -> new User("foo", "foo", null, new ArrayList<>(), true, true));
 
     }
 
