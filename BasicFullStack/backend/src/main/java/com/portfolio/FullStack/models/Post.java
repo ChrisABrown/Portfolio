@@ -1,13 +1,9 @@
 package com.portfolio.FullStack.models;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.jetbrains.annotations.NotNull;
 
-import javax.xml.stream.events.Comment;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
@@ -19,28 +15,26 @@ import java.util.ArrayList;
 @Table(name = "Posts")
 public class Post {
 
+    public Post (@NotNull String postId){
+        this.postId = postId;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @NotNull
-    @Column(name = "PostId")
+    @Column(name = "PostId", columnDefinition = "VARCHAR(255)")
     private String postId;
-    @JoinColumn(name = "UserId")
-    @Transient
-    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "User", columnDefinition = "VARCHAR(50)")
+    @ManyToOne
     private User user;
-    @Column(name = "CreatedOn")
+    @Column(name = "CreatedOn", columnDefinition = "DATETIME")
     private LocalDateTime createdOn;
-    @Column(name = "UpdatedOn")
+    @Column(name = "UpdatedOn", columnDefinition = "DATETIME")
     private LocalDateTime updatedOn;
-    @Column(name = "Body")
+    @Column(name = "Body", columnDefinition = "TEXT")
     private String body;
-    @Column(name = "Comments")
-    @Transient
-    private ArrayList<Comment> comments;
 
-    public Post(@NotNull String postId) {
-        this.postId = postId;
-    }
+
 
     public boolean isEmpty() {
         return body == null || body.equals("");

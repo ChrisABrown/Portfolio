@@ -21,8 +21,7 @@ public class PostService {
     }
 
     public List<Post> getAllPostsForSingleUser(String userId) {
-        List<Post> postOwner = postRepository.findByUser(userId);
-        return postRepository.findAll();
+        return postRepository.findByUser(userId);
     }
 
     public Optional<Post> getSinglePost(String postId) {
@@ -38,7 +37,6 @@ public class PostService {
             newPost.setUpdatedOn(postDetails.getUpdatedOn());
             newPost.setUser(postDetails.getUser());
             newPost.setCreatedOn(postDetails.getCreatedOn());
-            newPost.setComments(postDetails.getComments());
             return postRepository.save(newPost);
 
         } catch (NoSuchElementException e) {

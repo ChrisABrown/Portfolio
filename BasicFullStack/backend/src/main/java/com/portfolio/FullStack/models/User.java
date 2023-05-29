@@ -18,20 +18,29 @@ import java.util.ArrayList;
 @Table(name = "Users")
 public class User {
 
-    @Column(name = "Username")
+    public User (@NotNull String userId){
+        this.userId = userId;
+    }
+
+    @Column(name = "Username", columnDefinition = "VARCHAR(50)")
     private String username;
     @Id
     @NotNull
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "UserId", columnDefinition = "VARCHAR(255)")
     private String userId;
     @Transient
     @NotNull
     private String password;
-    @Column(name = "Posts")
-    @Transient
+    @Column(name = "Posts", columnDefinition = "JAVA_OBJECT")
+    @OneToMany(mappedBy = "postId")
     private ArrayList<Post> posts;
+    @Transient
     private Boolean isUsernameEmpty;
+    @Transient
     private Boolean isUserIdEmpty;
+
+
 
 
 }
